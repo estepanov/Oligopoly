@@ -14,15 +14,15 @@ const Board: React.FC = ({ }) => {
         <div className="board">
             {board.map((row, i) => {
                 return (
-                    <div key={row[0].positionY} className="cell">
+                    <div key={row[0].positionY} className="row">
                         {row.map(cell => {
                             return (
                                 <Cell 
                                     key={cell.positionX + "-" + cell.positionY}
-                                    posX={cell.positionX}
-                                    posY={cell.positionY}
+                                    {...cell}
                                     maxX={WIDTH-1}
                                     maxY={HEIGHT-1}
+                                    
                                 >
                                     {cell.positionX + "-" + cell.positionY}
                                 </Cell>)

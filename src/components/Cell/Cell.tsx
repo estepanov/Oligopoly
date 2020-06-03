@@ -2,25 +2,41 @@ import React from "react"
 import "./cell.css"
 import classNames from "classnames"
 
-interface CellProps {
-    posX: Number
-    posY: Number
-    maxX: Number
-    maxY: Number
+import { CellConfiguration } from "../../interfaces/Board"
+
+interface CellProps extends CellConfiguration {
+    maxX: number
+    maxY: number
 }
 
-const Cell: React.FC<CellProps> = ({ children, posX , posY, maxX, maxY }) => {
-    const isStartEnd = posX === 0 || posX === maxX 
-    const isCorner = (posY === 0 && isStartEnd) || (posY === maxY && isStartEnd)
-    const isTop = posY === 0 || posY === maxY
-    return <div className={classNames({ 
-        'cell': true,  
+const Cell: React.FC<CellProps> = ({ 
+    // cell configuration props
+    positionX: x,
+    positionY: y,
+    isBottomRow,
+    isTopRow,
+    isLeftColumn,
+    isRightColumn,
+    isEdge,
+    isCorner,
+    // component only props
+    children,
+    maxX, 
+    maxY
+}) => {
+    return <div className={classNames({
+        'cell': true,
         'corner-piece': isCorner,
-        'top-piece': !isCorner && isTop,
-        'side-piece': !isCorner && isStartEnd,
-        'inner-piece':  !isCorner && !isTop &&!isStartEnd
+        'top': isTopRow,
+        'right': isRightColumn,
+        'bottom': isBottomRow,
+        'left': isLeftColumn,
+        'top-edge': !isCorner && isTopRow,
+        'right-edge': !isCorner && isRightColumn,
+        'bottom-edge': !isCorner && isBottomRow,
+        'left-edge': !isCorner && isLeftColumn,
 
-    })}>x</div>
+    })}>{children}</div>
 }
 
 export default Cell;
