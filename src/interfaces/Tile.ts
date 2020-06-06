@@ -1,7 +1,7 @@
-export enum TileType {
-  start = "start",
-  property = "property",
-  action = "action"
+export const TileType = {
+  start: "start",
+  property: "property",
+  action: "action"
 }
 
 export enum TileGroup {
