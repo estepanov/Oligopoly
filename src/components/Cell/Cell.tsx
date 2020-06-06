@@ -1,42 +1,26 @@
 import React from "react"
-import "./cell.css"
-import classNames from "classnames"
+import { Flex } from "rebass"
 
-import { CellConfiguration } from "../../interfaces/Board"
+import { getBorders, getWidth, getHeight } from "./Cell.library"
+import { CellTileConfiguration } from "../../interfaces/Board"
 
-interface CellProps extends CellConfiguration {
-    maxX: number
-    maxY: number
-}
+import CellRenderMap from "./types"
 
-const Cell: React.FC<CellProps> = ({ 
-    // cell configuration props
-    positionX: x,
-    positionY: y,
-    isBottomRow,
-    isTopRow,
-    isLeftColumn,
-    isRightColumn,
-    isEdge,
-    isCorner,
-    // component only props
-    children,
-    maxX, 
-    maxY
-}) => {
-    return <div className={classNames({
-        'cell': true,
-        'corner-piece': isCorner,
-        'top': isTopRow,
-        'right': isRightColumn,
-        'bottom': isBottomRow,
-        'left': isLeftColumn,
-        'top-edge': !isCorner && isTopRow,
-        'right-edge': !isCorner && isRightColumn,
-        'bottom-edge': !isCorner && isBottomRow,
-        'left-edge': !isCorner && isLeftColumn,
-
-    })}>{children}</div>
+const Cell: React.FC<CellTileConfiguration> = (props) => {
+  const CellRender = props.type ? CellRenderMap[props.type] : CellRenderMap.start
+  return <Flex
+    display="inline-flex"
+    sx={{
+      ...getBorders(props),
+      width: getWidth(props),
+      height: getHeight(props),
+      flexShrink: 0,
+    }}
+  >
+    <CellRender {...props}>
+      {props.children}
+    </CellRender>
+  </Flex>
 }
 
 export default Cell;

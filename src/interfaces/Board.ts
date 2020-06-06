@@ -1,21 +1,27 @@
+import { Tile } from "./Tile"
 export enum CellTypes {
-    leftCorner = 'LEFT'
+  leftCorner = 'LEFT'
+}
+
+export interface BoardConfig {
+  maxX: number;
+  maxY: number;
 }
 
 export interface CellConfiguration {
-    positionX: number;
-    positionY: number;
-    isTopRow: boolean;
-    isBottomRow: boolean;
-    isLeftColumn: boolean;
-    isRightColumn: boolean;
-    isCorner: boolean;
-    isEdge: boolean;
+  board: BoardConfig;
+  coordinateX: number;
+  coordinateY: number;
+  isTopRow: boolean;
+  isBottomRow: boolean;
+  isLeftColumn: boolean;
+  isRightColumn: boolean;
+  isCorner: boolean;
+  isEdge: boolean;
+  isPlayable: boolean;
 }
 
-// export interface PropertyConfiguration {
-//     title?: string;
-//     group?: string;
-// }
+export interface CellTileConfiguration extends CellConfiguration, Tile {
+}
 
 // export interface 

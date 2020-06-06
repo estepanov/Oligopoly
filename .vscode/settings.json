@@ -1,0 +1,17 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "workbench.colorCustomizations": {
+    "statusBar.border": "#000000",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.background": "#12a305",
+  },
+  "editor.formatOnSave": true,
+  "eslint.enable": true
+}

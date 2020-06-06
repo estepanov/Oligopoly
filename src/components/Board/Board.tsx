@@ -1,37 +1,54 @@
 import React from "react"
-import "./board.css"
-import { buildBoardArray } from "./Board.library"
+import { Flex, Box } from "rebass"
+
+import { configureBoardArray } from "./Board.library"
+import { configuration } from "../../constants/properties"
+
 import Cell from "../Cell"
 
-const HEIGHT = 11;
-const WIDTH = 11;
+const BoardContainer: React.FC = (props) => {
+  return <Box
+    display="inline-block"
+    sx={{
+      borderStyle: "solid",
+      borderColor: "black",
+      borderSize: 1,
+      flexShrink: 0
+    }}
+    {...props}
+  />
+}
+
+const RowContainer: React.FC = props => {
+  return <Flex
+    wrap="no-wrap"
+    flexShrink={0}
+    {...props}
+  />
+}
 
 
-
-const Board: React.FC = ({ }) => {
-    const board = buildBoardArray(HEIGHT, WIDTH)
-    return (
-        <div className="board">
-            {board.map((row, i) => {
-                return (
-                    <div key={row[0].positionY} className="row">
-                        {row.map(cell => {
-                            return (
-                                <Cell 
-                                    key={cell.positionX + "-" + cell.positionY}
-                                    {...cell}
-                                    maxX={WIDTH-1}
-                                    maxY={HEIGHT-1}
-                                    
-                                >
-                                    {cell.positionX + "-" + cell.positionY}
-                                </Cell>)
-                        })}
-                    </div>
-                )
+const Board: React.FC = () => {
+  const board = configureBoardArray(configuration)
+  return (
+    <BoardContainer>
+      {board.map((row, i) => {
+        return (
+          <RowContainer key={row[0].coordinateY}>
+            {row.map(cell => {
+              return (
+                <Cell
+                  key={cell.coordinateX + "-" + cell.coordinateY}
+                  {...cell}
+                >
+                  {cell.coordinateX + "-" + cell.coordinateY}
+                </Cell>)
             })}
-        </div>
-    )
+          </RowContainer>
+        )
+      })}
+    </BoardContainer>
+  )
 }
 
 export default Board

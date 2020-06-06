@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
+import { Flex } from "rebass";
 
-import Board from "./components/Board"
+import Board from "./components/Board";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="container">
+    <Flex justifyContent="center" alignItems="center" flexShrink={0} height="100%" width="100%">
       <Board />
-    </div>
+    </Flex>
   );
 }
 
