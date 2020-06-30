@@ -4,10 +4,10 @@ import { Flex } from "rebass"
 import { getBorders, getWidth, getHeight } from "./Cell.library"
 import { CellTileConfiguration, CellConfiguration } from "../../interfaces/Board"
 
-import CellRenderMap from "./types"
+import cellRenderMap from "./types"
 
 const Cell: React.FC<CellTileConfiguration> = (props) => {
-  const CellRender: React.FC<CellConfiguration> = props.type ? CellRenderMap[props.type] : CellRenderMap.start
+  const CellRender: React.FC<CellConfiguration> = cellRenderMap(props.type)
   return <Flex
     display="inline-flex"
     sx={{

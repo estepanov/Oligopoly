@@ -20,7 +20,7 @@ const CellTab: React.FC<CellTabProps> = ({ cell, size = TAB_SIZE }) => {
       rotation === 0 ? "100%" : size, // width
       rotation === 0 ? size : "100%" // height
     ]
-  }, [cell])
+  }, [cell, size])
   return (
     <Box
       sx={{
