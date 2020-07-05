@@ -18,6 +18,7 @@ export enum TileGroup {
 
 
 export interface Tile {
+  isPlayable?: boolean;
   title?: string,
   type?: TileType,
   group?: TileGroup,

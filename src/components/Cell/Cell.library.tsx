@@ -1,34 +1,47 @@
-import { CellTileConfiguration } from "../../interfaces/Board"
+import { CellTileConfiguration, CellConfiguration } from "../../interfaces/Board"
 
-export enum NextCellDirection {
-  top,
-  right,
-  bottom,
-  left
+enum BORDER_POS_MAP {
+  Top,
+  Right,
+  Bottom,
+  Left
 }
 
+export const getNextCell = (
+  currentCell: CellTileConfiguration,
+  direction: BORDER_POS_MAP,
+  property?: keyof CellConfiguration
+) => {
+  let xDelta = 0;
+  let yDelta = 0;
+  switch (direction) {
 
-// export const getNextCell = (
-//   currentCell: CellTileConfiguration,
-//   direction: NextCellDirection,
-//   property?: string
-// ) => {
-//   let xDelta
-//   let yDelta
-//   switch (direction) {
+    case BORDER_POS_MAP.Top:
+      yDelta = -1;
+      break;
+    case BORDER_POS_MAP.Right:
+      xDelta = 1;
+      break;
+    case BORDER_POS_MAP.Bottom:
+      yDelta = 1;
+      break;
+    case BORDER_POS_MAP.Left:
+      xDelta = -1;
+      break;
+    default:
+      break
+  }
+  if (!xDelta || !yDelta) return null
+  if (currentCell.coordinateY <= currentCell.board.maxY && currentCell.coordinateY >= 0) {
+    if (currentCell.coordinateX <= currentCell.board.maxX && currentCell.coordinateX >= 0) {
+      return // NEEDS CELL MAP
+    }
+  }
+}
 
-//     case NextCellDirection.top:
-//       break;
-//     default:
-//       break
-//   }
-//   if (!xDelta || !yDelta) return null
-//   if (currentCell.coordinateY <= currentCell.board.maxY && currentCell.coordinateY >= 0) {
-//     if (currentCell.coordinateX <= currentCell.board.maxX && currentCell.coordinateX >= 0) {
-//       return
-//     }
-//   }
-// }
+const checkBorderDirection = (cell: CellTileConfiguration, direction: BORDER_POS_MAP) => {
+
+}
 
 export const getBorders = (cell: CellTileConfiguration) => {
   return {

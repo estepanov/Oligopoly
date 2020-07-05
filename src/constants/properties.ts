@@ -7,7 +7,8 @@ export const properties: Tile[] = [
     type: TileType.start,
     color: "green",
     coordinateX: 0,
-    coordinateY: 0
+    coordinateY: 0,
+    isPlayable: true
   },
   {
     title: "Manhatten",
@@ -15,7 +16,8 @@ export const properties: Tile[] = [
     group: TileGroup.NEW_YORK,
     color: "blue",
     coordinateX: 1,
-    coordinateY: 0
+    coordinateY: 0,
+    isPlayable: true
   },
   {
     title: "Brooklyn",
@@ -23,7 +25,8 @@ export const properties: Tile[] = [
     group: TileGroup.NEW_YORK,
     color: "blue",
     coordinateX: 2,
-    coordinateY: 0
+    coordinateY: 0,
+    isPlayable: true
   },
   {
     title: "Blah",
@@ -31,7 +34,8 @@ export const properties: Tile[] = [
     group: TileGroup.DALLAS,
     color: "green",
     coordinateX: 0,
-    coordinateY: 1
+    coordinateY: 1,
+    isPlayable: true
   },
   {
     title: "BBQ",
@@ -39,7 +43,8 @@ export const properties: Tile[] = [
     group: TileGroup.DALLAS,
     color: "green",
     coordinateX: 0,
-    coordinateY: 3
+    coordinateY: 3,
+    isPlayable: true
   },
   {
     title: "HOME",
@@ -47,7 +52,8 @@ export const properties: Tile[] = [
     group: TileGroup.DALLAS,
     color: "purple",
     coordinateX: 1,
-    coordinateY: 10
+    coordinateY: 10,
+    isPlayable: true
   },
   {
     title: "HOM2E",
@@ -55,7 +61,8 @@ export const properties: Tile[] = [
     group: TileGroup.DALLAS,
     color: "purple",
     coordinateX: 3,
-    coordinateY: 10
+    coordinateY: 10,
+    isPlayable: true
   },
   {
     title: "CARS",
@@ -63,7 +70,8 @@ export const properties: Tile[] = [
     group: TileGroup.DALLAS,
     color: "orange",
     coordinateX: 10,
-    coordinateY: 4
+    coordinateY: 4,
+    isPlayable: true
   },
 ]
 

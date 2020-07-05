@@ -18,7 +18,7 @@ export interface CellConfiguration {
   isRightColumn: boolean;
   isCorner: boolean;
   isEdge: boolean;
-  isPlayable: boolean;
+  isPlayable?: boolean;
 }
 
 export interface CellTileConfiguration extends CellConfiguration, Tile {

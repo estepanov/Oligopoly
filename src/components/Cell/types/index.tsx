@@ -2,9 +2,9 @@ import Property from "./Property"
 import Start from "./Start"
 
 import { TileType } from "../../../interfaces/Tile"
-import { CellConfiguration } from "../../../interfaces/Board"
+import { CellTileConfiguration } from "../../../interfaces/Board"
 
-export default (tileType: TileType | undefined): React.FC<CellConfiguration> => {
+export default (tileType: TileType | undefined): React.FC<CellTileConfiguration> => {
   switch (tileType) {
     case TileType.property:
       return Property;
